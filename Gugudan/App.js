@@ -2,8 +2,6 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-  // 뭐뭐 했는지
-  // 입력시 정답인지 아닌지 체크후 리턴
   const [history, setHistory] = useState({
     value: ''
   });
@@ -18,7 +16,7 @@ function App() {
   })
 
 
-  // 불변성으로 인한 재 랜더링
+  
   function onHandleSubmit(e) {
     e.preventDefault();
     if(parseInt(history.value) === first.gugu * second.gugu) {
