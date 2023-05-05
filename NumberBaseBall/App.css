@@ -1,0 +1,40 @@
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quest-container {
+  margin-bottom: 10px;
+}
+
+.form-container{
+  margin-bottom: 10px;
+}
+
+.history-container {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #444;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  background-color: darkgray;
+  color: white;
+}
+td {
+  background-color: brown;
+  color: white;
+}
+
+th, td {
+  padding: 5px;
+  border: 1px solid #444;
+}
