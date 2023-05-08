@@ -1,0 +1,93 @@
+:root {
+  --app-header-logo: rgb(94, 80, 63);
+  --app-header-title: azure;
+  --app-header-blank: aqua;
+  --app-main-blank: rgb(48, 28, 4);
+  --app-main-content: rgb(165, 146, 123);
+  --app-main-rank: rgb(245, 214, 177);
+  --app-footer-blank1: aquamarine;
+  --app-footer-ms: rgb(105, 121, 115);
+  --app-footer-blank2: rgb(22, 29, 27);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1.2fr 1.2fr;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer"
+  ;
+}
+
+.App-header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "headLogo headerTitle headBlank";
+}
+.App-header > .header__title {
+  grid-area: headerTitle;
+  text-align: center;
+  font-size: 16px;
+  background-color: var(--app-header-title);
+}
+.App-header > .header__logo {
+  grid-area: headLogo;
+  background-color: var(--app-header-logo);
+}
+.App-header > .header__blank {
+  grid-area: headBlank;
+  background-color: var(--app-header-blank);
+}
+
+.App-main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "mainBlank mainContent mainRank";
+}
+.App-main > .main__blank--1{
+  grid-area: mainBlank;
+  background-color: var(--app-main-blank);
+}
+.App-main > .main__content{
+  grid-area: mainContent;
+  background-color: var(--app-main-content);
+}
+.App-main > .main__rank-container{
+  grid-area: mainRank;
+  background-color: var(--app-main-rank);
+}
+
+
+.App-footer {
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "ftBlank1 ftContent ftBlank2";
+}
+.App-footer > .footer__blank--1 {
+  grid-area: ftBlank1;
+  background-color: var(--app-footer-blank1);
+}
+.App-footer > .footer__content {
+  grid-area: ftContent;
+  background-color: var(--app-footer-ms);
+}
+.App-footer > .footer__blank--2 {
+  grid-area: ftBlank2;
+  background-color: var(--app-footer-blank2);
+}
