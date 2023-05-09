@@ -1,18 +1,35 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import './Game.css';
 
 function Game(props) {
     const [status, setStatus] = useState('게임을 시작하시려면 화면을 클릭해주세요.');
     const [isActive, setIsActive] = useState('start');
-    const [check1, setCheck1] = useState();
-    const [check2, setCheck2] = useState();
+    const [history, setHistory] = useState([]);
+    const gameTimeout = useRef(null);
+    const startTime = useRef(0);
+    const endTime = useRef(0);
 
-    if(isActive === "ready") {
-        let gameTimeout = setTimeout(time, Math.floor(Math.random() * 3000 + 1000));
+    const resultHistory = history.map((li, i) => {
+        if(i > 2) {
+            return (<div>
+                <li key={li+i+'third'}>{i+1}회차: {li.result}ms</li>
+                <li key={li+i+'avar'}>평균 속도는 {history.reduce((acc, cur) => {
+                    return acc + cur.result
+                }, 0) / history.length}입니다.</li>
+                <li key={li+i}><button onClick={reStart}>재시작</button></li>
+            </div>)
+        }
+        return <li key={li+i}>{i+1}회차: {li.result}ms</li>
+    })
+
+    function reStart() {
+        setHistory(history.slice(0,0));
+        setIsActive('start');
+        setStatus('게임을 시작하시려면 화면을 클릭해주세요.');
     }
 
     function time() {
-        setCheck1(new Date().getTime());
+        startTime.current = new Date().getTime();
         setIsActive('go');
         setStatus('Go!!');
     }
@@ -21,16 +38,23 @@ function Game(props) {
         if(isActive === "start") {
             setIsActive('ready');
             setStatus('화면이 녹색이 되면 클릭하세요.');
+            gameTimeout.current = setTimeout(time, Math.floor(Math.random() * 1000 + 2000));
         }else if(isActive === "ready") {
+            clearTimeout(gameTimeout.current);
             setIsActive('ban');
             setStatus('아직 화면이 녹색이 아닙니다.');
         } else if(isActive === "ban") {
             setIsActive('ready');
             setStatus('화면이 녹색이 되면 클릭하세요.');
+            gameTimeout.current = setTimeout(time, Math.floor(Math.random() * 1000 + 2000));
         } else if(isActive === "go") {
-            setCheck2(new Date().getTime());
+            endTime.current = new Date().getTime();
+            let result = endTime.current - startTime.current;
+            setHistory([...history, {result: result}]);
             setIsActive('ready');
             setStatus('화면이 녹색이 되면 클릭하세요.');
+            console.log(history);
+            gameTimeout.current = setTimeout(time, Math.floor(Math.random() * 1000 + 2000));
         }
     }
 
@@ -39,7 +63,11 @@ function Game(props) {
                 <div className={`Game ${isActive}`} onClick={handleClick}>
                     <div className="GameFont">{status}</div>
                 </div>
-                <div>{check2 - check1}</div>
+                <div>
+                    <ul>
+                        {resultHistory}
+                    </ul>
+                </div>
         </div>
     )
 }
