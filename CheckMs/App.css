@@ -70,6 +70,10 @@
   grid-area: mainRank;
   background-color: var(--app-main-rank);
 }
+.App-main > .main__rank-container > .main__rank-container__item {
+  background-color: white;
+  color: black;
+}
 
 
 .App-footer {
