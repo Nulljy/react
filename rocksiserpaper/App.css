@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.App-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    border-radius: 20px;
+    background-color: rgba(210, 221, 231, 0.26);
+}
+
+.App-container > #computer {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 20%;
+    width: 12%;
+}
+
+.App-container > #button-container {
+    margin-top: 10px;
+    width: 13%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.App-container > #button-container > button {
+    padding: 5px 5px;
+    background-color: rgba(199, 243, 243, 0.411);
+    border: solid 1px white;
+    border-radius: 5px;
+}
+
+.App-container > #button-container > button:hover {
+    background-color: rgba(199, 243, 243, 0.952);
+}
+
+.App-container > #status{
+    margin-top: 5px;
+    padding: 10px 20px; 
+    border-radius: 10px;
+    border: 1px solid rgba(137, 43, 226, 0.349);
+    background-color: rgba(137, 43, 226, 0.158)
+}
