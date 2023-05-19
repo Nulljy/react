@@ -4,7 +4,11 @@
 # ver2 컴포넌트형 
 ![가위바위보 ver2](https://github.com/Nulljy/react/assets/74478749/4fcc83e7-24fa-4b8f-bfcb-d504478bf2f9)
 
-# 추가사항: box-shadow
+# 추가사항 
+  box-shadow
+  useCallback
+  useEffect
+  
   useCallback은 콜백 함수를 메모이제이션하여 동일한 함수 인스턴스를 재사용하는데 사용된다.
   useEffect의 의존성 배열은 해당 의존성에 따라 useEffect의 실행 시기를 결정한다.
   useCallback의 메모이제이션은 처음 렌더링할 때만 생성되고, 이후의 렌더링에서는 동일한  
