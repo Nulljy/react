@@ -8,7 +8,7 @@
 +버튼을 누르면 clickHandle함수에 의해 useReducer의 countDispatch함수에 인자를 주게되고 countReducer의 action의 option과 number에 의해 값이 변하게 된다.
 
 ### 중요
-`const [count, countDispatch] = useReducer(countReducer,0);
+``const [count, countDispatch] = useReducer(countReducer,0);
 function countReducer(oldCount, action) {
     switch(action.option) {
       case '+':
@@ -29,7 +29,7 @@ function countReducer(oldCount, action) {
       case '0':
         return countDispatch({option: '0'});
     } 
-  }`
+  }``
   
   useReducer = 은행
   count는 장부
