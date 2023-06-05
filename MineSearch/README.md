@@ -64,3 +64,16 @@ let halted;
 let halted = false;
 ```
 으로 수정
+
+# 느낀점
+의존성 배열에 halted = false가 클릭으로 인해 false가 그대로 진행되어도 원하는 기능을 다시 실행시키려면 다시 false로 초기화 시켜서 return 해주어야한다.
+```javaScript
+let halted = false;
+return {
+                ...state,
+                tableData: tableData,
+                openedCount: state.openedCount + openedCount,
+                result: result,
+                halted: halted,
+            }
+```
