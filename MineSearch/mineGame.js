@@ -36,7 +36,6 @@ const initialState = {
         mine:0,
     },
     timer: 0,
-
     result: '',
     halted: true,
     openedCount: 0,
@@ -85,7 +84,7 @@ const reducer = (state, action) => {
         }
         case OPEN_BOX:{
             let result;
-            let halted;
+            let halted = false;
             let openedCount = 0;
             const tableData = [...state.tableData];
             let checked = []; // 이미 연 칸은 넣어놓기
@@ -243,7 +242,7 @@ const App = (props) => {
         return () => {
             clearInterval(time);
         }  
-    }, [halted])
+    }, [halted]);
     
 
     return (
