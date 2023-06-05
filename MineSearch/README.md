@@ -27,6 +27,7 @@ if(bottom) {
 
 
 ## 지뢰찾기 게임 ver1
+![지뢰찾기](https://github.com/Nulljy/react/assets/74478749/23596d27-3a70-4e60-9a04-3e259a2ed209)
 
 # 구현해야할 것
 1. 몇개의 열과 셀, 마인 갯수가 필요한지 적을 폼과 submit 버튼
